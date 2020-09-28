@@ -86,8 +86,10 @@
 // const list = ... ;
 
 const list = document.getElementById("schedule");
+
 const track1CheckBox = document.getElementById("show-track-1");
 const track2CheckBox = document.getElementById("show-track-2");
+
 function createSessionElement(session) {
     // TODO: Task 3 - Create a <li> element for the session.
     //       Add the session title as the <li> text content
@@ -111,17 +113,18 @@ function displaySchedule() {
     // TODO: Task 4 - Loop through the schedule array
     //       Create session elements
     //       Append the elements to the list   
+    //for (let i = 0; i < schedule.length; i++) {
+    //    const li = createSessionElement(schedule[i]);
+    //    list.appendChild(li);
+    //}
     for (let i = 0; i < schedule.length; i++) {
-        /*const li = createSessionElement(schedule[i]);
-        list.appendChild(li);*/
-
         const tracks = schedule[i].tracks;
-        const isCurrentTrack = (track1CheckBox.checked && tracks.indexOf(1) >= 0) || (track2CheckBox.checked && tracks.indexOf(2) >= 0);
+        const isCurrentTrack = (track1CheckBox.checked && tracks.indexOf(1) >= 0) ||
+            (track2CheckBox.checked && tracks.indexOf(2) >= 0);
         if (isCurrentTrack) {
             const li = createSessionElement(schedule[i]);
             list.appendChild(li);
         }
-        
     }
 }
 
